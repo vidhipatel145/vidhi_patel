@@ -8,7 +8,9 @@ body {
     max-width: 800px;
     margin: 0 auto;
   }
-  
+  address{
+      text-align: right;
+  }
   .sender-column {
     text-align: right;
   }
