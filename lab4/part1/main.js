@@ -1,3 +1,12 @@
+<!--
+Name: Vidhi Patel
+File:main.js
+Date: 1 dec 2024
+silly story generator
+-->
+
+
+
 let customName = document.getElementById("customName");
 let randomize = document.getElementById("randomize");
 let story = document.getElementById("story");
