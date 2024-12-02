@@ -1,3 +1,13 @@
+/* 
+Name: Vidhi Patel 
+File: main.js 
+Date: 01 December 2024 
+JavaScript to create a simulation of bouncing balls with added features. 
+*/
+
+
+
+
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 const width = canvas.width;
