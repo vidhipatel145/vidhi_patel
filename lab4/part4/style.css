@@ -1,13 +1,9 @@
 /* 
 Name: Vidhi Patel 
-File: styles.css 
+File: style.css 
 Date: 01 December 2024 
-CSS to style the bouncing balls simulation page.
+This CSS file contains the styling for the bouncing balls simulation page.
 */
-
-
-
-
 
 body {
   font-family: Arial, sans-serif;
@@ -26,3 +22,10 @@ canvas {
   border: 1px solid #ccc;
 }
 
+p {
+  position: absolute;
+  margin: 0;
+  top: 35px;
+  right: 5px;
+  color: #aaa;
+}
