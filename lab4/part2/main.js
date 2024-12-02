@@ -1,37 +1,41 @@
-// Step 1: List all the image file names
-const imageList = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 
-// Step 2: Get places from the HTML to show images
-const thumbBar = document.querySelector('.thumb-bar'); // Where small images go
-const bigImage = document.querySelector('.displayed-img'); // The main big image
-const button = document.querySelector('button.dark'); // Button to darken/lighten
-const overlay = document.querySelector('.overlay'); // The dark overlay area
+/* 
+Name: Vidhi Patel 
+File: main.js 
+Date: 01 December 2024 
+This JavaScript file implements the interactive image gallery, including the lightbox feature.
+*/
 
-// Step 3: Add small images to the thumbnail bar
-imageList.forEach((imageName, index) => {
-    let smallImage = document.createElement('img'); // Make a new image
-    smallImage.src = `images/${imageName}`; // Set its picture file
-    smallImage.alt = `Thumbnail ${index + 1}`; // Add a short description
-    thumbBar.appendChild(smallImage); // Put it in the thumbnail bar
+// Get all gallery items and the lightbox elements
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const caption = document.getElementById('caption');
+const closeBtn = document.getElementById('close');
+
+// Function to open the lightbox with the clicked image and caption
+function openLightbox(event) {
+  lightbox.style.display = 'flex';
+  lightboxImg.src = event.target.src;
+  caption.textContent = event.target.getAttribute('data-caption');
+}
+
+// Function to close the lightbox
+function closeLightbox() {
+  lightbox.style.display = 'none';
+}
+
+// Add event listeners to each gallery item
+galleryItems.forEach(item => {
+  item.addEventListener('click', openLightbox);
 });
 
-// Step 4: Make clicking a small image change the big image
-thumbBar.addEventListener('click', (event) => {
-    if (event.target.tagName === 'IMG') { // Make sure we clicked an image
-        bigImage.src = event.target.src; // Change the big image's picture
-        bigImage.alt = event.target.alt; // Change the big image's description
-    }
-});
+// Add event listener to close the lightbox
+closeBtn.addEventListener('click', closeLightbox);
 
-// Step 5: Add the darken/lighten feature
-button.addEventListener('click', () => {
-    if (button.className === 'dark') { // If the button says "Darken"
-        button.className = 'light'; // Change it to "Lighten"
-        button.textContent = 'Lighten'; // Update the button text
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Add darkness
-    } else { // If the button says "Lighten"
-        button.className = 'dark'; // Change it back to "Darken"
-        button.textContent = 'Darken'; // Update the button text
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Remove darkness
-    }
+// Close the lightbox if the user clicks anywhere outside of the image
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
 });
