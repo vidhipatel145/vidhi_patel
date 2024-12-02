@@ -118,8 +118,13 @@ class EvilCircle extends Shape {
 }
 
 // Setting up the canvas and context
-const canvas = document.querySelector('canvas');
+const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+
+// Make canvas full screen
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
 let balls = [];
 let evilCircle = new EvilCircle(100, 100);
 let ballCount = 0;
