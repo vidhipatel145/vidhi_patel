@@ -13,7 +13,6 @@ function randomRGB() {
   return `rgb(${r},${g},${b})`;
 }
 
-// Shape class to define basic properties for any shape (balls and evil circle)
 class Shape {
   constructor(x, y, velX, velY) {
     this.x = x;
@@ -23,16 +22,14 @@ class Shape {
   }
 }
 
-// Ball class inheriting from Shape
 class Ball extends Shape {
   constructor(x, y, velX, velY, size, color) {
     super(x, y, velX, velY);
     this.size = size;
     this.color = color;
-    this.exists = true; // Ball exists by default
+    this.exists = true;
   }
 
-  // Draw the ball on canvas
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -40,7 +37,6 @@ class Ball extends Shape {
     ctx.fill();
   }
 
-  // Update the ball's position
   update() {
     if (this.x + this.size >= canvas.width || this.x - this.size <= 0) {
       this.velX = -this.velX;
@@ -52,7 +48,6 @@ class Ball extends Shape {
     this.y += this.velY;
   }
 
-  // Collision detection between balls
   collisionDetect(balls) {
     for (const ball of balls) {
       if (!(this === ball) && ball.exists) {
@@ -61,14 +56,13 @@ class Ball extends Shape {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.size + ball.size) {
-          ball.color = this.color = randomRGB(); // Change color on collision
+          ball.color = this.color = randomRGB();
         }
       }
     }
   }
 }
 
-// EvilCircle class inheriting from Shape
 class EvilCircle extends Shape {
   constructor(x, y) {
     super(x, y, 20, 20);
@@ -76,7 +70,6 @@ class EvilCircle extends Shape {
     this.color = 'white';
   }
 
-  // Draw the evil circle on canvas
   draw(ctx) {
     ctx.beginPath();
     ctx.strokeStyle = this.color;
@@ -85,7 +78,6 @@ class EvilCircle extends Shape {
     ctx.stroke();
   }
 
-  // Prevent evil circle from going off the canvas
   checkBounds() {
     if (this.x + this.size >= canvas.width) {
       this.x = canvas.width - this.size;
@@ -101,7 +93,6 @@ class EvilCircle extends Shape {
     }
   }
 
-  // Collision detection between evil circle and balls
   collisionDetect(balls) {
     for (const ball of balls) {
       if (ball.exists) {
@@ -110,18 +101,21 @@ class EvilCircle extends Shape {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.size + ball.size) {
-          ball.exists = false; // Ball is eaten by the evil circle
+          ball.exists = false;
         }
       }
     }
   }
 }
 
-// Setting up the canvas and context
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-// Make canvas full screen
+if (!ctx) {
+  console.error('Canvas context not found');
+  return;
+}
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -129,7 +123,6 @@ let balls = [];
 let evilCircle = new EvilCircle(100, 100);
 let ballCount = 0;
 
-// Create multiple balls
 for (let i = 0; i < 10; i++) {
   const size = Math.random() * 20 + 10;
   const x = Math.random() * (canvas.width - size * 2) + size;
@@ -141,15 +134,12 @@ for (let i = 0; i < 10; i++) {
   ballCount++;
 }
 
-// Display ball count
 const ballCountElement = document.getElementById('ball-count');
 
-// Update the ball count on screen
 function updateBallCount() {
   ballCountElement.textContent = `Ball count: ${balls.filter(ball => ball.exists).length}`;
 }
 
-// Event listener to move the evil circle
 window.addEventListener('keydown', (e) => {
   switch (e.key) {
     case 'a':
@@ -167,11 +157,9 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// Main loop to animate the balls and evil circle
 function loop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw, update, and check collisions for each ball
   balls.forEach((ball) => {
     if (ball.exists) {
       ball.draw(ctx);
@@ -180,18 +168,13 @@ function loop() {
     }
   });
 
-  // Draw and update the evil circle
   evilCircle.draw(ctx);
   evilCircle.checkBounds();
   evilCircle.collisionDetect(balls);
 
-  // Update ball count
   updateBallCount();
 
-  // Call loop again
   requestAnimationFrame(loop);
 }
 
-// Start the animation loop
 loop();
-
