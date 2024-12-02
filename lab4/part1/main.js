@@ -1,10 +1,8 @@
-<!--
-Name: Vidhi Patel
-File:main.js
-Date: 1 dec 2024
-silly story generator
--->
-
+/* 
+Name: Vidhi Patel 
+File: main.js 
+Date: 01 December 2024 
+*/
 
 
 let customName = document.getElementById("customName");
