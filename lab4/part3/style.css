@@ -1,25 +1,16 @@
-html, body {
-  margin: 0;
-}
-
-html {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  height: 100%;
-}
-
 body {
+  margin: 0;
   overflow: hidden;
-  height: inherit;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 h1 {
-  font-size: 2rem;
-  letter-spacing: -1px;
-  position: absolute;
-  margin: 0;
-  top: -4px;
-  right: 5px;
+  margin: 20px 0;
+}
 
-  color: transparent;
-  text-shadow: 0 0 4px white;
+canvas {
+  display: block;
 }
