@@ -1,29 +1,31 @@
-<!--
-Name: Vidhi Patel
-File: gallery.html
-Date: 28 November 2024
-An interactive image gallery.
+<!-- 
+Name: Vidhi Patel 
+File: index.html 
+Date: 01 December 2024 
+This HTML file contains the structure for the image gallery simulation with interactive features such as lightbox.
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Image Gallery</title>
-    <link rel="stylesheet" href="styles.css">
-   
+  <meta charset="utf-8">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
-    <h1>Image Gallery</h1>
-    <div class="gallery">
-        <img src="images/pic1.jpg" alt="Picture 1">
-        <img src="images/pic2.jpg" alt="Picture 2">
-        <img src="images/pic3.jpg" alt="Picture 3">
-        <img src="images/pic4.jpg" alt="Picture 4">
-        <img src="images/pic5.jpg" alt="Picture 5">
-    </div>
-    <div class="overlay">
-        <img>
-    </div>
-     <script src="main.js" defer></script>
+  <h1>Image Gallery</h1>
+  <div class="gallery">
+    <img class="gallery-item" src="images/pic1.jpg" alt="Picture 1" data-caption="This is image 1" />
+    <img class="gallery-item" src="images/pic2.jpg" alt="Picture 2" data-caption="This is image 2" />
+    <img class="gallery-item" src="images/pic3.jpg" alt="Picture 3" data-caption="This is image 3" />
+    <img class="gallery-item" src="images/pic4.jpg" alt="Picture 4" data-caption="This is image 4" />
+    <img class="gallery-item" src="images/pic5.jpg" alt="Picture 5" data-caption="This is image 5" />
+  </div>
+  <div id="lightbox" class="lightbox">
+    <span id="close" class="close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" />
+    <p id="caption" class="caption"></p>
+  </div>
+  <script src="main.js"></script>
 </body>
 </html>
+
