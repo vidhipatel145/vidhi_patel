@@ -1,47 +1,37 @@
-// functionality for showing/hiding the comments section
 
-const showHideBtn = document.querySelector('.show-hide');
-const commentWrapper = document.querySelector('.comment-wrapper');
+// JavaScript for accessibility improvements
 
-commentWrapper.style.display = 'none';
+// Toggle the visibility of comments when the button is clicked or activated by the keyboard
+document.addEventListener('DOMContentLoaded', function () {
+  const showHideButton = document.querySelector('.show-hide');
+  const commentSection = document.querySelector('.comment-wrapper');
+  
+  // Toggle visibility when the button is clicked
+  showHideButton.addEventListener('click', function() {
+    commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
+    showHideButton.textContent = commentSection.style.display === 'none' ? 'Show comments' : 'Hide comments';
+  });
 
-showHideBtn.onclick = function() {
-  let showHideText = showHideBtn.textContent;
-  if(showHideText === 'Show comments') {
-    showHideBtn.textContent = 'Hide comments';
-    commentWrapper.style.display = 'block';
-  } else {
-    showHideBtn.textContent = 'Show comments';
-    commentWrapper.style.display = 'none';
-  }
-};
+  // Make the button keyboard accessible
+  showHideButton.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault(); // Prevent default action (like scrolling on spacebar)
+      showHideButton.click(); // Trigger the button click programmatically
+    }
+  });
 
-// functionality for adding a new comment via the comments form
+  // Ensure the button is focusable and receives focus for keyboard users
+  showHideButton.setAttribute('tabindex', '0');
+  showHideButton.setAttribute('aria-expanded', 'false');
+  showHideButton.setAttribute('aria-controls', 'comments-section');
 
-const form = document.querySelector('.comment-form');
-const nameField = document.querySelector('#name');
-const commentField = document.querySelector('#comment');
-const list = document.querySelector('.comment-container');
+  // Set the correct ARIA attributes when comments are shown or hidden
+  const updateAriaAttributes = () => {
+    const isCommentsVisible = commentSection.style.display !== 'none';
+    showHideButton.setAttribute('aria-expanded', isCommentsVisible.toString());
+    commentSection.setAttribute('aria-hidden', (!isCommentsVisible).toString());
+  };
 
-form.onsubmit = function(e) {
-  e.preventDefault();
-  submitComment();
-};
-
-function submitComment() {
-  const listItem = document.createElement('li');
-  const namePara = document.createElement('p');
-  const commentPara = document.createElement('p');
-  const nameValue = nameField.value;
-  const commentValue = commentField.value;
-
-  namePara.textContent = nameValue;
-  commentPara.textContent = commentValue;
-
-  list.appendChild(listItem);
-  listItem.appendChild(namePara);
-  listItem.appendChild(commentPara);
-
-  nameField.value = '';
-  commentField.value = '';
-}
+  // Initialize the ARIA attributes when the page loads
+  updateAriaAttributes();
+});
