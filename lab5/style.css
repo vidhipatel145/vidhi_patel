@@ -1,5 +1,10 @@
 /* || General setup */
 
+
+body {
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+}
 html, body {
   margin: 0;
   padding: 0;
