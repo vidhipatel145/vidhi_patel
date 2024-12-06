@@ -1,32 +1,36 @@
-/*
-Vidhi Patel
-INFT1206
-24 September 2024
-
-*/
 body {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  address{
-      text-align: right;
-  }
-  .sender-column {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+}
+
+.header, .footer {
     text-align: right;
-  }
-  
-  h1 {
-    font-size: 1.5em;
-  }
-  
-  h2 {
-    font-size: 1.3em;
-  }
-  
-  p,ul,ol,dl,address {
-    font-size: 1.1em;
-  }
-  
-  p, li, dd, dt, address {
-    line-height: 1.5;
-  }
+}
+
+.address {
+    margin-bottom: 20px;
+}
+
+.subject {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.footer {
+    margin-top: 40px;
+}
+
+.footer em {
+    font-style: italic;
+}
