@@ -1,85 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessibility Troubleshooting</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to our wildlife website</h1>
+    <header>
+        <h1>Welcome to our wildlife website</h1>
+    </header>
     <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <form class="search" role="search">
-      <label for="search" class="sr-only">Search the site</label>
-      <input type="search" id="search" placeholder="Search query">
-      <button type="submit">Go!</button>
-    </form>
-  </header>
-
-  <main>
-    <article>
-      <h2>The trouble with Bears</h2>
-      <p><strong>By Evan Wild</strong></p>
-      <p>
-        Tall, lumbering, angry, dangerous. The real live bears of this world are proud, independent creatures, self-serving and always on the hunt for food. Nothing like the bears you see on TV, like Baloo from renowned documentary, *The Jungle Book*.
-      </p>
-      <h3>Types of bear</h3>
-      <p>Bears come in two varieties — large and medium. You don't get small bears...</p>
-      <table>
-        <caption>Comparison of different bear types</caption>
-        <thead>
-          <tr>
-            <th>Bear Type</th>
-            <th>Coat</th>
-            <th>Adult size</th>
-            <th>Habitat</th>
-            <th>Lifespan</th>
-            <th>Diet</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Wild</td>
-            <td>Brown or black</td>
-            <td>1.4 to 2.8 meters</td>
-            <td>Woods and forests</td>
-            <td>25 to 28 years</td>
-            <td>Fish, meat, plants</td>
-          </tr>
-        </tbody>
-      </table>
-    </article>
-    <section class="comments">
-      <button id="toggle-comments">Show comments</button>
-      <div id="comments-section" hidden>
-        <h2>Comments</h2>
-        <form>
-          <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="Enter your name">
-          <label for="comment">Your Comment</label>
-          <textarea id="comment" placeholder="Enter your comment"></textarea>
-          <button type="submit">Submit Comment</button>
-        </form>
         <ul>
-          <li>
-            <p><strong>Bob Fossil:</strong> Great article about bears!</p>
-          </li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
         </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>©Copyright 2050 by nobody. All rights reversed.</p>
-  </footer>
-
-  <script src="main.js"></script>
+    </nav>
+    <main>
+        <section id="search">
+            <form>
+                <label for="search-query" class="sr-only">Search</label>
+                <input type="text" id="search-query" placeholder="Search query">
+                <button type="submit">Go!</button>
+            </form>
+        </section>
+        <article>
+            <h2>The trouble with Bears</h2>
+            <p>By Evan Wild</p>
+            <section>
+                <h3>Types of Bears</h3>
+                <p>Bears come in two varieties — large and medium. You don’t get small bears. If you see a small bear, it’s probably a cub of another species.</p>
+            </section>
+        </article>
+        <section id="audio">
+            <audio controls>
+                <source src="audio-file.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p>Transcript: [Insert audio transcript here]</p>
+        </section>
+        <section id="comments">
+            <button id="toggle-comments">Show Comments</button>
+            <div id="comments-section" hidden>
+                <p>Comment 1: Bears are fascinating creatures!</p>
+                <p>Comment 2: I love reading about wildlife.</p>
+            </div>
+        </section>
+        <section id="table">
+            <table summary="Table of bear species and their habitats">
+                <caption>Bear Species and Habitats</caption>
+                <thead>
+                    <tr>
+                        <th>Species</th>
+                        <th>Habitat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Grizzly Bear</td>
+                        <td>Forests, Mountains</td>
+                    </tr>
+                    <tr>
+                        <td>Polar Bear</td>
+                        <td>Arctic Regions</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Wildlife Website</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
