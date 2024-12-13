@@ -1,194 +1,137 @@
-/* Updated CSS */
+
 html, body {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html {
+  font-family: 'Lato', sans-serif;
   background-color: #e9eef2;
-  font-size: 12px;
 }
 
 body {
   margin: auto;
   width: 85%;
   min-width: 1024px;
+  line-height: 1.6;
 }
 
-/* Typography */
-h1, h2, h3 {
+/* Header */
+.header h1 {
   font-family: 'Roboto Slab', serif;
-  color: #333;
-}
-
-p, label, li, input, table {
-  font-family: 'Lato', sans-serif;
-  color: #444;
-}
-
-h1 {
-  font-size: 4rem;
-  text-align: center;
+  font-size: 3rem;
   color: #fff;
-  text-shadow: 2px 2px 8px #000;
-}
-
-h2 {
-  font-size: 3.2rem;
+  background-color: #444;
+  padding: 20px;
   text-align: center;
 }
 
-h3 {
-  font-size: 2.8rem;
-}
-
-p, li {
-  font-size: 1.8rem;
-  line-height: 1.5;
-}
-
-/* Header Layout */
-.nav-bar, .footer, .aside {
-  background-color: rgb(210, 234, 210);
-  padding: 15px 25px;
-}
-
-.nav-bar {
-  height: 55px;
+/* Navigation */
+.nav {
+  background-color: #d2ead2;
+  padding: 10px;
   display: flex;
-  align-items: center;
-  margin-bottom: 12px;
+  justify-content: space-between;
 }
 
-.nav-bar ul {
-  display: flex;
-  list-style-type: none;
+.nav ul {
+  list-style: none;
   padding: 0;
-  flex: 3;
+  display: flex;
 }
 
-.nav-bar li {
-  flex: 1;
-  text-align: center;
+.nav li {
+  margin: 0 15px;
 }
 
-.nav-bar a {
-  font-size: 1.9rem;
-  text-transform: uppercase;
+.nav a {
   text-decoration: none;
   color: #222;
+  font-size: 1.6rem;
 }
 
-.nav-bar .search-bar {
-  flex: 1;
+.nav .search {
   display: flex;
-  align-items: center;
-  padding-left: 2rem;
 }
 
-.search-bar input[type="search"] {
-  width: 70%;
-  height: 34px;
-  font-size: 1.7rem;
-}
-
-.search-bar input[type="submit"] {
-  margin-left: 1rem;
-  background: #555;
-  color: #fff;
-  border: none;
-  height: 36px;
+.search input[type="search"] {
+  padding: 5px;
+  margin-right: 10px;
 }
 
 /* Main Content */
 main {
   display: flex;
+  gap: 20px;
 }
 
-.content {
-  flex: 4;
-  padding: 10px 20px;
+article {
+  flex: 3;
 }
 
-.aside {
-  flex: 2;
+aside {
+  flex: 1;
+  background-color: #eef;
+  padding: 10px;
 }
 
-/* Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #f4f8fb;
+  margin: 10px 0;
 }
 
 table th, table td {
-  padding: 10px;
-  text-align: center;
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
 }
 
 table th {
-  border-bottom: 2px solid #666;
-}
-
-table tr:nth-child(odd) {
-  background-color: #edf7fb;
-}
-
-/* Comments Section */
-.comments {
-  background-color: #eef;
-  padding: 15px;
-}
-
-.comment-section {
-  margin-top: 15px;
-}
-
-.comment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-
-.comment-form label {
-  align-self: flex-start;
-}
-
-.comment-form input[type="text"], .comment-form textarea {
-  width: 80%;
-  padding: 8px;
-}
-
-.comment-form input[type="submit"] {
   background-color: #444;
   color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+/* Comments */
+.comments {
+  margin-top: 20px;
+  background-color: #eef;
   padding: 10px;
-  width: 25%;
 }
 
-.comment-list li {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 15px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
-.comment-list .comment-user {
-  font-weight: bold;
-}
-
-.comment-list .comment-text {
-  margin-left: 10px;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #444;
+  color: #fff;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-  .nav-bar {
+  .nav {
     flex-direction: column;
+    align-items: center;
   }
 
-  .search-bar {
-    margin-top: 10px;
+  main {
+    flex-direction: column;
   }
 }
+
