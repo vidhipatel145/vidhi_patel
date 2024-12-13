@@ -8,22 +8,28 @@ An interactive image gallery.
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
     <link rel="stylesheet" href="style.css">
-   
 </head>
 <body>
     <h1>Image Gallery</h1>
     <div class="gallery">
-        <img src="images/pic1.jpg" alt="Picture 1">
-        <img src="images/pic2.jpg" alt="Picture 2">
-        <img src="images/pic3.jpg" alt="Picture 3">
-        <img src="images/pic4.jpg" alt="Picture 4">
-        <img src="images/pic5.jpg" alt="Picture 5">
+        <img src="images/pic1.jpg" alt="Picture 1" class="gallery-item" data-caption="Picture 1">
+        <img src="images/pic2.jpg" alt="Picture 2" class="gallery-item" data-caption="Picture 2">
+        <img src="images/pic3.jpg" alt="Picture 3" class="gallery-item" data-caption="Picture 3">
+        <img src="images/pic4.jpg" alt="Picture 4" class="gallery-item" data-caption="Picture 4">
+        <img src="images/pic5.jpg" alt="Picture 5" class="gallery-item" data-caption="Picture 5">
     </div>
-    <div class="overlay">
-        <img>
+
+    <div id="lightbox" class="lightbox">
+        <span id="close" class="close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <p id="caption" class="caption"></p>
+        </div>
     </div>
-     <script src="main.js" defer></script>
+
+    <script src="main.js" defer></script>
 </body>
 </html>
